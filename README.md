@@ -13,13 +13,9 @@ A reinforcement learning project implementing a custom Gymnasium environment whe
 - [Configuration](#-configuration)
 - [Performance Metrics](#-performance-metrics)
 - [Customization](#-customization)
-- [Troubleshooting](#-troubleshooting)
 - [File Descriptions](#-file-descriptions)
-- [Learning Outcomes](#-learning-outcomes)
 - [Future Improvements](#-future-improvements)
-- [License](#-license)
-- [Author](#-author)
-- [Support](#-support)
+
 
 ##  Environment Overview
 
@@ -59,6 +55,7 @@ SimpleCorridor-RL/
 │   └── gym_wrapper_recorder.py      # Video recording (gym wrapper)
 │
 ├── notebook/
+|   ├── PPOSimplecorridor.zip        # Trained model obtained by running this notebook
 │   └── SimpleCorridor_Walkthrough.ipynb  # Jupyter notebook walkthrough
 │
 ├── configs/
@@ -73,7 +70,7 @@ SimpleCorridor-RL/
 └── README.md                        # This file
 ```
 
-## 🚀 Installation
+##  Installation
 
 ### Prerequisites
 - Python 3.8+
@@ -100,7 +97,7 @@ venv\Scripts\activate  # On Windows
 pip install -r requirements.txt
 ```
 
-## 📦 Dependencies
+##  Dependencies
 
 - **gymnasium** (>=0.28.1) - RL environment framework
 - **stable-baselines3** (>=2.0.0) - PPO algorithm
@@ -111,14 +108,14 @@ pip install -r requirements.txt
 - **moviepy** - Video processing
 - **imageio** - Image/video I/O
 
-## ▶️ Running the Project
+##  Running the Project
 
 ### Full Pipeline
 
 Execute the complete workflow (test → train → evaluate → plot):
 
 ```bash
-python main.py
+python3 main.py
 ```
 
 ### Step-by-Step
@@ -139,7 +136,7 @@ from visualization.plot import plot_rewards
 plot_rewards("logs/")
 ```
 
-## ⚙️ Configuration
+##  Configuration
 
 Edit `configs/ppo_config.yaml` to customize:
 
@@ -152,7 +149,7 @@ video_file: "videos/simple_corridor_agent.mp4"
 record_ep: 3                         # Episodes to record
 ```
 
-## 📈 Performance Metrics
+##  Performance Metrics
 
 The evaluation script measures:
 - **Success Rate**: % of episodes reaching the goal
@@ -170,7 +167,7 @@ Total Episodes: 100
 Successful Episodes: 100
 ```
 
-## 🔧 Customization
+##  Customization
 
 ### Modify Environment Parameters
 
@@ -191,18 +188,8 @@ model = DQN("MlpPolicy", env)  # or A2C, PPO, etc.
 total_timesteps: 10000  # Increase for longer training
 ```
 
-## 🐛 Troubleshooting
 
-**Issue**: `ModuleNotFoundError: No module named 'gymnasium'`
-- **Solution**: Run `pip install -r requirements.txt`
-
-**Issue**: `FileNotFoundError: models/ directory doesn't exist`
-- **Solution**: Run `python main.py` which creates directories automatically
-
-**Issue**: Plots not showing
-- **Solution**: Ensure matplotlib backend is configured, or use `plt.savefig()`
-
-## 📝 File Descriptions
+##  File Descriptions
 
 | File | Purpose |
 |------|---------|
@@ -213,17 +200,9 @@ total_timesteps: 10000  # Increase for longer training
 | `main.py` | Main pipeline orchestration |
 | `configs/ppo_config.yaml` | Centralized configuration |
 
-## 🎓 Learning Outcomes
 
-This project demonstrates:
-- ✅ Creating custom Gymnasium environments
-- ✅ Training RL agents with PPO algorithm
-- ✅ Evaluating agent performance
-- ✅ Visualizing training progress
-- ✅ Modular project structure for ML
-- ✅ Configuration management with YAML
 
-## 🔮 Future Improvements
+##  Future Improvements
 
 - [ ] Add image-based rendering for video recording
 - [ ] Implement curriculum learning (increasing corridor length)
@@ -233,14 +212,5 @@ This project demonstrates:
 - [ ] Web interface for visualization
 - [ ] Tensorboard integration for training metrics
 
-## 📄 License
 
-This project is provided as-is for educational purposes.
 
-## 👤 Author
-
-Jonida Zekaj
-
-## 📞 Support
-
-For issues or questions, please create an issue in the repository.
