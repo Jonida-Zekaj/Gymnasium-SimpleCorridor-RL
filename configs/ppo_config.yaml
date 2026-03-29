@@ -1,0 +1,6 @@
+env_id : "SimpleCorridor-v0"
+log_dir: "logs/"
+model_path: "PPOSimpleCorridor"
+total_timesteps: 5000
+video_file: "simple_corridor_agent.mp4"
+record_ep: 3
