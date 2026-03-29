@@ -1,1 +1,4 @@
-from plot import plot_rewards
+from .plot import plot_rewards
+from .video_recorder_imageio import create_video_imageio
+from .gym_wrapper_recorder import create_video_gym_wrapper
+from .video_demo import display_video_in_colab

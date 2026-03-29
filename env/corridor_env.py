@@ -1,12 +1,19 @@
+import gymnasium as gym 
+from gymnasium import spaces
+
+
+
 class SimpleCorridorEnv(gym.Env):
-    def __init__(self, corridor_length=10):
+    def __init__(self, corridor_length=10, render_mode=None):
         super(SimpleCorridorEnv, self).__init__()
         self.corridor_length = corridor_length
         self.current_pos = 0                    # agents start position
+        self.render_mode = render_mode
 
         # Define action and observation space
         self.action_space = spaces.Discrete(2)  # movements: 0=Left/ 1=Right
         self.observation_space = spaces.Discrete(corridor_length)
+        self.metadata = {"render_modes": []}
 
     # At the begining of each episode environment is reset
     def reset(self, seed=None, options=None):
@@ -46,6 +53,6 @@ class SimpleCorridorEnv(gym.Env):
 # Registering the environment in GYM
 gym.register(
     id="SimpleCorridor-v0",
-    entry_point="__main__:SimpleCorridorEnv",
+    entry_point="env.corridor_env:SimpleCorridorEnv",
     kwargs={"corridor_length": 10}
 )

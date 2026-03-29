@@ -1,5 +1,4 @@
 import gymnasium as gym
-from pyglet import env
 from stable_baselines3 import PPO
 
 

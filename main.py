@@ -3,10 +3,7 @@ import env.corridor_env
 from train_test.train import train_agent
 from train_test.evaluate import evaluate_agent
 from visualization.plot import plot_rewards
-from visualization.video_recorder_imageio import create_video_imageio
-# from visualization.gym_wrapper_recorder import create_video_gym_wrapper
 import yaml 
-import argparse 
 
 # Load configuration from YAML file
 with open('configs/ppo_config.yaml', 'r') as file:
@@ -57,15 +54,10 @@ evaluate_agent(model_path)
 
 # Step 5 :: Record a video
 from stable_baselines3 import PPO
+from visualization.gym_wrapper_recorder import create_video_gym_wrapper
 
 model = PPO.load(model_path)
-video_env = gym.make(env_id)
-create_video_imageio(video_env,
-                     model,
-                     filename = video_file,
-                     num_episodes=record_ep,
-                     )
-video_env.close()
+create_video_gym_wrapper(env_id, model, video_folder="videos", num_episodes=record_ep)
 
 # Step 6 :: Display video
 #from recording.colab_display import display_video_in_colab
