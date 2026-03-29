@@ -1,0 +1,7 @@
+gymnasium
+stable_baselines3
+pyglet
+moviepy
+matplotlib
+numpy
+pyyaml
